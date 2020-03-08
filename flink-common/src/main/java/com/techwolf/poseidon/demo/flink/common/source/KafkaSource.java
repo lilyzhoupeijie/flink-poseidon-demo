@@ -15,7 +15,6 @@ public class KafkaSource implements BasicSource <String>{
     @Override
     public ParallelSourceFunction<String> getSource(ParameterTool parameterTool, String source) {
         Properties kafkaSourceProps = new Properties();
-        System.out.println(parameterTool.get(source+".kafka.read.group.id"));
         kafkaSourceProps.put("group.id", parameterTool.get(source+".kafka.read.group.id"));
         kafkaSourceProps.put("bootstrap.servers", parameterTool.get(source+".kafka.read.bootstrap.servers"));
         kafkaSourceProps.put("enable.auto.commit", parameterTool.getBoolean(source+".kafka.read.enable.auto.commit"));
